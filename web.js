@@ -4,13 +4,7 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
   var fs = require('fs'); 
-  response.send(fs.readFile('/bitstarter/index.html', function read(err, data) { 
-    if(err) {
-       throw err;
-    }
-    content = data;
-    console.log(content);
-  }));
+  response.send(fs.readFile('/bitstarter/index.html', 'utf8'));
 });
 
 var port = process.env.PORT || 5000;
